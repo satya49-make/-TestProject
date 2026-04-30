@@ -1,0 +1,17 @@
+Once EC2 is created-
+ # 1. Connect to GitBash
+- cd ~/Downloads   # or wherever your key file is saved
+- chmod 400 mykey.pem  # set permission on key
+- ssh -i mykey.pem ubuntu@<Public-IP>
+- sudo -i
+- sudo apt-get update 
+- docker -v
+# 2. To install the latest stable versions of Docker CLI, Docker Engine, and their dependencies:
+# 1. download the script
+#   $ curl -fsSL https://get.docker.com -o install-docker.sh
+# 2. run the script either as root, or using sudo to perform the installation.
+#   $ sudo sh install-docker.sh
+
+#====================Docker run hello-world==============
+  - docker run hello-world
+  
