@@ -1,0 +1,35 @@
+EC2 + Jenkins Setup (Ubuntu)
+
+1. Connect to EC2
+ssh -i mykey.pem ubuntu@<Public-IP>
+
+2. Update system
+sudo apt update && sudo apt upgrade -y
+
+3. Install prerequisites
+sudo apt install -y fontconfig openjdk-11-jdk wget gnupg
+
+4. Add Jenkins repo key
+wget -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo tee \
+/usr/share/keyrings/jenkins-keyring.asc > /dev/null
+
+5. Add Jenkins repo
+echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
+https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
+/etc/apt/sources.list.d/jenkins.list > /dev/null
+
+6. Update again
+sudo apt update
+
+7. Install Jenkins
+sudo apt install -y jenkins
+
+8. Start Jenkins service
+sudo systemctl enable jenkins
+sudo systemctl start jenkins
+sudo systemctl status jenkins
+
+9. Access Jenkins
+Browser: http://<Public-IP>:8080
+Get initial password:
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
