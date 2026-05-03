@@ -1,0 +1,15 @@
+docker run -d \
+  --name my-mysql \
+  -e MYSQL_ROOT_PASSWORD=root \
+  -e MYSQL_DATABASE=portfolio_db \
+  -v /home/ubuntu/data:/var/lib/mysql \  ##here maping the /
+  -p 3306:3306 \
+  mysql:8.0
+  
+  
+where:
+  -v /home/ubuntu/data:/var/lib/mysql
+This is the volume mount.
+Maps your EC2 host directory /home/ubuntu/data → to the container’s /var/lib/mysql.
+/var/lib/mysql is where MySQL stores all its data files.
+This ensures persistence: even if the container is deleted, the database files remain on your EC2 machine.
