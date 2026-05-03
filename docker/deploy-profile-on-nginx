@@ -65,3 +65,8 @@ chmod 400 /path/to/docker-key-1.pem
 sudo apt update
 sudo apt install vim
 vim --version
+
+## copy index.html file from local downloads folder to EC2 /home/ubuntu/ folder and then connect with ec2
+    - scp -i /downloads/docker-key-3.pem index.html ubuntu@65.2.73.239:/home/ubuntu/
+    - ssh -i docker-key-3.pem ubuntu@65.2.73.239
+
