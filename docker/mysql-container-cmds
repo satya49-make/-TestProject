@@ -1,3 +1,8 @@
+### Clean up old container and data
+- docker rm -f my-mysql
+- sudo rm -rf /home/ubuntu/data/*
+
+### Rum mysql docker container
 docker run -d \
   --name my-mysql \
   -e MYSQL_ROOT_PASSWORD=root \
@@ -13,3 +18,8 @@ This is the volume mount.
 Maps your EC2 host directory /home/ubuntu/data → to the container’s /var/lib/mysql.
 /var/lib/mysql is where MySQL stores all its data files.
 This ensures persistence: even if the container is deleted, the database files remain on your EC2 machine.
+
+### Fix permissions on the mounted directory
+- sudo chown -R 999:999 /home/ubuntu/data
+### Connect to MySQL
+- docker exec -it my-mysql mysql -u root -p
