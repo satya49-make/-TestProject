@@ -17,6 +17,7 @@ sudo sh install-docker.sh
 ### 3. Run Nginx Container from Docker
 ```bash
 docker run --name satya-ngx -p 80:80 -d -v ~/docker-nginx/html:/usr/share/nginx/html nginx
+docker run -d -p 80:80 -v /home/ubuntu/html:/usr/share/nginx/html nginx
 ```
 - Default Nginx HTML page will be available at:
 ```
@@ -28,6 +29,7 @@ http://<EC2-Public-IP>/
 ```bash
 scp -i /path/to/your-key.pem index.html ubuntu@<EC2-Public-IP>:/home/ubuntu/
 scp -i /downloads/your-key.pem index.html ubuntu@<EC2-Public-IP>:/home/ubuntu/
+ scp -i docker-4.pem index.html ubuntu@13.201.88.155:/home/ubuntu
 ```
 
 ### 5. Copy HTML from EC2 to Nginx Container Directory
@@ -42,6 +44,7 @@ docker run --name satya-ngx -p 80:80 -d -v ~/docker-nginx/html:/usr/share/nginx/
 ### c. Copy/replace index.html inside container
 ```bash
 docker cp /home/ubuntu/index.html <nginx-container-id>:/usr/share/nginx/html/
+ cp /home/ubuntu/index.html /home/ubuntu/html/
 ```
 
 ### 6. Reload / Refresh Page
