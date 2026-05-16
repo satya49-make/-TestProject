@@ -24,7 +24,13 @@ docker run -d -p 80:80 -v /home/ubuntu/html:/usr/share/nginx/html nginx
 http://<EC2-Public-IP>/
 ```
 ### 4. Create Your Own HTML Page and Copy to EC2
+```
+copy spring boot and react app in ec2 from local
 
+  109  scp -i docker-4.pem C:/project3/ToDoApp/build/libs/ToDoApp-0.0.1-SNAPSHOT.jar ubuntu@65.0.139.129:/home/ubuntu/
+  116  scp -i docker-4.pem -r C:/frontend/todo-frontend/dist ubuntu@65.0.139.129:/home/ubuntu/
+
+```
 ### From local machine (Git Bash / Terminal):
 ```bash
 scp -i /path/to/your-key.pem index.html ubuntu@<EC2-Public-IP>:/home/ubuntu/
