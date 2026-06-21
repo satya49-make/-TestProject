@@ -1,0 +1,115 @@
+TODO App AWS EC2 deployment    
+1  sudo apt update
+    2  sudo apt update && sudo apt upgrade -y
+    3  sudo apt install -y mongodb
+    4  curl -fsSL https://pgp.mongodb.com/server-6.0.asc | sudo gpg --dearmor -o /usr/share/keyrings/mongodb-server-6.0.gpg
+    5  sudo apt install -y mongodb
+    6  sudo tee /etc/yum.repos.d/mongodb-org-5.0.repo << EOF
+    7  [mongodb-org-5.0]
+    8  name=MongoDB Repository
+    9  baseurl=https://repo.mongodb.org/yum/amazon/2/mongodb-org/5.0/x86_64/
+   10  gpgcheck=1
+   11  enabled=1
+   12  gpgkey=https://www.mongodb.org/static/pgp/server-5.0.asc
+   13  EOF
+   14  sudo yum install -y mongodb-org
+   15  sudo -i
+   16  scp -i your-key.pem target/todoapp.jar ubuntu@your-ec2-ip:/home/ubuntu/
+   17  sudo scp -i /Downloads/todo-key.pem C:/project3/ToDoApp/build/lib/ToDoApp-0.0.1-SNAPSHOT.jar ubuntu@your-ec2-ip:/home/ubuntu/
+   18  sudo scp -i ~/Downloads/todo-key.pem C:/project3/ToDoApp/build/lib/ToDoApp-0.0.1-SNAPSHOT.jar ubuntu@your-ec2-ip:/home/ubuntu/
+   19  docker --version
+   20  sudo apt install -y git
+   21  https://github.com/satya49-make/ToDoApp.git
+   22  git clone https://github.com/satya49-make/ToDoApp.git
+   23  git clone -b app-todo-app  https://github.com/satya49-make/ToDoApp.git
+   24  ls
+   25  rm -rf ToDoApp
+   26  git clone -b app-todo-app  https://github.com/satya49-make/ToDoApp.git
+   27  ls
+   28  cd todoapp
+   29  cd ToDoApp
+   30  docker build -t todo-app .
+   31  sudo usermod -aG docker $USER
+   32  sudo usermod -aG docker ubuntu
+   33  exit
+   34  sudo -i
+   35  ls
+   36  cd ToDoApp
+   37  docker build -t todo-app .
+   38  docker ps
+   39  docker images
+   40  sudo docker run -d -p 8080:8080 todo-app
+   41  docker ps
+   42  docker rm 375c5c7f22db
+   43  docker stop 375c5c7f22db
+   44  docker rm 375c5c7f22db
+   45  sudo docker run -d -p 8080:8081 todo-app
+   46  docker ps
+   47  cd..
+   48  cd.
+   49  cd .
+   50  cd ..
+   51  git clone -b todo-frontend https://github.com/satya49-make/todo-frontend.git
+   52  ls
+   53  rm todo-frontend
+   54  rm -rf todo-frontend
+   55  ls
+   56  git clone -b todo-frontend https://github.com/satya49-make/todo-frontend.git
+   57  docker ls
+   58  docker ps
+   59  cd todo-frontend
+   60  sudo docker build -t todo-frontend .
+   61  sudo docker run -d -p 80:80 todo-frontend
+   62  ls -l
+   63  cd ..
+   64  rm -rf todo-frontend
+   65  ls
+   66  git clone -b todo-frontend https://github.com/satya49-make/todo-frontend.git
+   67  ls
+   68  cd todo-frontend
+   69  sudo docker build -t todo-frontend .
+   70  cd ..
+   71  sudo apt update
+   72  sudo apt install -y nodejs npm
+   73  cd todo-frontend
+   74  sudo docker build -t todo-frontend .
+   75  cd ..
+   76  node -v
+   77  npm -v
+   78  rm -rf todo-frontend
+   79  ls
+   80  git clone -b todo-frontend https://github.com/satya49-make/todo-frontend.git
+   81  npm install
+   82  npm run build
+   83  cd todo-frontend
+   84  npm install
+   85  npm run build
+   86  sudo docker build -t todo-frontend .
+   87  sudo docker run -d -p 80:80 todo-frontend
+   88  sudo docker build -t todo-frontend .
+   89  ls
+   90  cd ..
+   91  rm -rf todo-frontend
+   92  git clone -b todo-frontend https://github.com/satya49-make/todo-frontend.git
+   93  cd todo-frontend
+   94  npm install
+   95  npm run build
+   96  sudo docker build -t todo-frontend .
+   97  sudo docker run -d -p 80:80 todo-frontend
+   98  docker ps
+   99  docker stop 200~db6608facc8a
+  100  docker stop todo-frontend
+  101  docoker ps
+  102  docker ps
+  103  docker stop db6608facc8a
+  104  docker rm db6608facc8a
+  105  cd ..
+  106  rm -rf todo-frontend
+  107  git clone -b todo-frontend https://github.com/satya49-make/todo-frontend.git
+  108  cd todo-frontend
+  109  sudo docker build -t todo-frontend .
+  110  npm install
+  111  npm run build
+  112  sudo docker build -t todo-frontend .
+  113  sudo docker run -d -p 80:80 todo-frontend
+  114  cd ..
